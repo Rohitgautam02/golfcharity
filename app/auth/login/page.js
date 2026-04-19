@@ -22,7 +22,7 @@ function LoginForm() {
     e.preventDefault()
     setLoading(true)
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data: { user }, error } = await supabase.auth.signInWithPassword({
       email,
       password
     })
@@ -31,8 +31,20 @@ function LoginForm() {
       toast.error(error.message)
       setLoading(false)
     } else {
+      // Fetch role to determine redirect
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('role')
+        .eq('id', user.id)
+        .single()
+
       toast.success("Welcome back!")
-      router.push(redirectTo)
+      
+      if (profile?.role === 'admin') {
+        router.push('/admin')
+      } else {
+        router.push(redirectTo)
+      }
     }
   }
 

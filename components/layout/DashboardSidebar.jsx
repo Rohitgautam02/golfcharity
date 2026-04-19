@@ -18,13 +18,18 @@ import {
 import { createClientSideClient } from '@/lib/supabase'
 import { useState } from 'react'
 
-export default function DashboardSidebar({ user }) {
+export default function DashboardSidebar({ user, profile }) {
   const pathname = usePathname()
   const [isCollapsed, setIsCollapsed] = useState(false)
   const supabase = createClientSideClient()
 
   const navItems = [
     { name: 'Overview', href: '/dashboard', icon: <LayoutDashboard className="w-5 h-5" /> },
+    ...(profile?.role === 'admin' ? [{ 
+      name: 'Admin Panel', 
+      href: '/admin', 
+      icon: <Settings className="w-5 h-5 text-brand-gold" /> 
+    }] : []),
     { name: 'My Scores', href: '/dashboard/scores', icon: <BarChart3 className="w-5 h-5" /> },
     { name: 'My Charity', href: '/dashboard/charity', icon: <Heart className="w-5 h-5" /> },
     { name: 'Draw History', href: '/dashboard/draws', icon: <Trophy className="w-5 h-5" /> },

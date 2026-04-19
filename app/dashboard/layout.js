@@ -13,13 +13,13 @@ export default async function DashboardLayout({ children }) {
 
   const { data: profile } = await supabase
     .from('profiles')
-    .select('subscription_status')
+    .select('subscription_status, role')
     .eq('id', user.id)
     .single()
 
   return (
     <div className="flex min-h-screen bg-brand-cream/30">
-      <DashboardSidebar user={user} />
+      <DashboardSidebar user={user} profile={profile} />
       
       <div className="flex-grow flex flex-col">
         {/* Top Banner (Conditional) */}
