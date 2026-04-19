@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { createServerSideClient } from '@/lib/supabase-server'
 import { Heart, Globe, Users, Trophy } from 'lucide-react'
 import Link from 'next/link'

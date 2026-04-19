@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { useState, useEffect } from 'react'
 import { createClientSideClient } from '@/lib/supabase'
 import { Check, X, ExternalLink, Trophy, User, Clock, ShieldCheck, Mail } from 'lucide-react'

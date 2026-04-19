@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { createServerSideClient } from '@/lib/supabase-server'
 import { Users, CreditCard, Heart, ShieldAlert, ArrowUpRight, TrendingUp } from 'lucide-react'
 import Link from 'next/link'

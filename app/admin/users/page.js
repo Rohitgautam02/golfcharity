@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { useState, useEffect } from 'react'
 import { Search, Mail, Filter, MoreVertical, Shield, ChevronLeft, ChevronRight } from 'lucide-react'
 import { format } from 'date-fns'

@@ -1,5 +1,7 @@
 'use client'
 
+export const dynamic = 'force-dynamic'
+
 import { useState, useEffect } from 'react'
 import { createClientSideClient } from '@/lib/supabase'
 import { Plus, Calendar, Settings2, Trash2, CheckCircle2 } from 'lucide-react'
